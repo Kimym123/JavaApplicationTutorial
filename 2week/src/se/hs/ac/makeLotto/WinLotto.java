@@ -9,8 +9,11 @@ public class WinLotto {
 	private int bonusNum;
 
 	public WinLotto() {
+//		this.winNum=new TreeSet<>();
 		this.winNum = setWinNum();
 		this.bonusNum = setBonusNum();
+		this.setWinNum();
+		this.setBonusNum();
 	}
 
 	public Set<Integer> setWinNum() {
@@ -19,12 +22,6 @@ public class WinLotto {
 			this.winNum.add(random);
 		}
 		return this.winNum;
-
-	}
-
-	public void clear() {
-		this.winNum.clear();
-		this.bonusNum = 0;
 	}
 
 	public int setBonusNum() {
@@ -41,6 +38,11 @@ public class WinLotto {
 
 	public int getBonusNum() {
 		return this.bonusNum;
+	}
+	
+	public void clear() {
+		this.winNum.clear();
+		this.bonusNum = 0;
 	}
 
 	@Override
