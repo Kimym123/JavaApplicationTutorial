@@ -39,7 +39,7 @@ public class WinLotto {
 	public int getBonusNum() {
 		return this.bonusNum;
 	}
-	
+
 	public void clear() {
 		this.winNum.clear();
 		this.bonusNum = 0;

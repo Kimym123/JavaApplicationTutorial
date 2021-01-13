@@ -33,8 +33,9 @@ public class UserLotto {
 
 	public void setRankNum(String userNum) {
 		this.rankNum = userNum;
+
 	}
-	
+
 	@Override
 	public String toString() {
 		RankNum rank = new RankNum();
@@ -45,4 +46,3 @@ public class UserLotto {
 		return user + ">> " + getRankNum();
 	}
 }
-

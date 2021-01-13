@@ -39,12 +39,12 @@ public class LottoGame {
 	public void setWinLotto() {
 		this.winLotto = new WinLotto();
 	}
-	
+
 	public void setLottoListResult() {
 		for (UserLotto userLotto : userLottoList) {
 			int result = judgeDuplicate(userLotto);
 			boolean bonus = judgeBonus(userLotto);
-			judgeRank(result, bonus);
+			judgeRank(userLotto, result, bonus);
 		}
 	}
 
@@ -68,7 +68,7 @@ public class LottoGame {
 		return bonus;
 	}
 
-	public void judgeRank(int result, boolean bonus) {
+	public void judgeRank(UserLotto userLotto, int result, boolean bonus) {
 		if (result == 6) {
 			userLotto.setRankNum("1등");
 		} else if (result == 5) {
@@ -82,7 +82,7 @@ public class LottoGame {
 			userLotto.setRankNum("5등");
 		}
 		userLotto.setRankNum("꽝");
+
 	}
-	
 
 }

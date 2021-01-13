@@ -13,21 +13,20 @@ public class LottoController {
 
 	private LottoGame lottoGame;
 	private LottoView lottoView;
-//	private WinLotto winLotto;
 
 	public LottoController() {
 		lottoGame = new LottoGame();
 		lottoView = new LottoView();
-//		winLotto = new WinLotto();
 	}
 
 	public void run() {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-			lottoView.showPrize(); // 당첨번호
-			System.out.println(lottoGame.getWinLotto()); // 당첨 번호들
-			lottoView.line(); // 라인
-			
-			lottoGame.setUserLottoList(5);
+			lottoView.showPrize();
+			System.out.println(lottoGame.getWinLotto());
+			lottoView.line();
+			lottoView.selectNum();
+			int selectNum = Integer.parseInt(br.readLine());
+			lottoGame.setUserLottoList(selectNum);
 			lottoGame.setLottoListResult();
 			lottoView.showUserLottoList(lottoGame.getUserLottoList());
 
@@ -37,15 +36,18 @@ public class LottoController {
 
 	}
 
+	public void prizeLotto() {
+
+	}
+
 	public void makeLotto(int num) {
 		lottoGame.setWinLotto();
 		lottoGame.setUserLottoList(num);
 	}
-	
+
 	public int inputNum(BufferedReader br) throws IOException {
-		lottoView.selectNum(); // 복권 숫자 입력
+		lottoView.selectNum();
 		return Integer.parseInt(br.readLine());
 	}
-	
-	
+
 }
