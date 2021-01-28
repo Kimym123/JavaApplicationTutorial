@@ -3,7 +3,12 @@ package se.hs.ac.controller;
 import se.hs.ac.module.CardModule;
 import se.hs.ac.view.CardView;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
+
+import static se.hs.ac.util.BusinessCardConstants.menu.*;
 
 public class CardController {
     private final CardView view;
@@ -15,35 +20,72 @@ public class CardController {
     }
 
     public void run() {
-        view.showCardMenu();
-        view.showSelectNumber();
-        Scanner sc = new Scanner(System.in);
-        int selectNumber = sc.nextInt();
-        caseNumber(selectNumber);
-
-    }
-
-    public void caseNumber(int selectNumber) {
-        switch (selectNumber) {
-            case 1:
-                Scanner sc = new Scanner(System.in);
-                view.showInputName();
-                String name = sc.next();
-                view.showInputPhone();
-                String phone = sc.next();
-                view.showInputCompany();
-                String company = sc.next();
-                module.insertUser(name, phone, company);
-                break;
-            case 2:
-                module.outputUser();
-                break;
-            case 3:
-                return;
+        while (true) {
+            view.showCardMenu();
+            Scanner sc = new Scanner(System.in);
+            String selectNumber = sc.next();
+            switch (selectNumber) {
+                case CREATE:
+                    create();
+                    break;
+                case ALLSEARCH:
+                    module.outputBusinessCard();
+                    break;
+                case NAMESEARCH:
+                    search();
+                    break;
+                case DELETE:
+                    delete();
+                    break;
+                case UPDATE:
+                    update();
+                    break;
+                case EXIT:
+                    view.showProgramOut();
+                    return;
+            }
         }
     }
 
-    public void inputCallingCard() {
-
+    public void create() {
+        Scanner create = new Scanner(System.in);
+        view.showInputName();
+        String name = create.next();
+        view.showInputPhone();
+        String phone = create.next();
+        view.showInputCompany();
+        String company = create.next();
+        module.insertBusinessCard(name, phone, company);
     }
+
+    public void search() {
+        Scanner Scan = new Scanner(System.in);
+        view.showFindName();
+        String findName = Scan.next();
+        module.findBusinessCard(findName);
+    }
+
+    public void delete() {
+        module.outputBusinessCard();
+        Scanner delete = new Scanner(System.in);
+        view.showDeleteNumber();
+        String deletePhone = delete.next();
+        module.deleteBusinessCard(deletePhone);
+    }
+
+    public void update() {
+        module.outputBusinessCard();
+        Scanner update = new Scanner(System.in);
+        view.showUpdateNumber();
+        String phoneNum = update.next();
+        view.showInputName();
+        String updateName = update.next();
+        view.showInputPhone();
+        String updatePhone = update.next();
+        view.showInputCompany();
+        String updateCompany = update.next();
+        module.updateBusinessCard(updateName, updatePhone, updateCompany, phoneNum);
+    }
+
+
 }

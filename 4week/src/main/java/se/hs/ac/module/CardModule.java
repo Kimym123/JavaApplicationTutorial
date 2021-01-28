@@ -1,28 +1,45 @@
 package se.hs.ac.module;
 
-import se.hs.ac.dao.UserDao;
-import se.hs.ac.dto.User;
+import se.hs.ac.dao.BusinessCardDao;
+import se.hs.ac.dto.BusinessCard;
+import se.hs.ac.view.CardView;
 
 import java.util.List;
 
 public class CardModule {
 
-    public void insertUser(String name, String phone, String company) {
-        User user = new User(name, phone, company);
+    private final BusinessCardDao dao = new BusinessCardDao();
+    private final CardView view = new CardView();
 
-        UserDao dao = new UserDao();
-        int insertCount = dao.addUser(user);
-        System.out.println(insertCount);
+
+    public void insertBusinessCard(String name, String phone, String company) {
+        BusinessCard businessCard = new BusinessCard(name, phone, company);
+        dao.addBusinessCard(businessCard);
     }
 
-    public void outputUser() {
-        UserDao dao = new UserDao();
-        List<User> list = dao.getUsers();
+    public void outputBusinessCard() {
+        List<BusinessCard> list = dao.getBusinessCard();
 
-        for (User user : list) {
-            System.out.println(user);
+        for (BusinessCard businessCard : list) {
+            view.showOutputBusinessCard(businessCard);
         }
     }
 
+    public void findBusinessCard(String businessCardName) {
+        List<BusinessCard> list = dao.findBusinessCard(businessCardName);
+
+        for (BusinessCard businessCard : list) {
+            view.showOutputBusinessCard(businessCard);
+        }
+    }
+
+    public void deleteBusinessCard(String businessCardPhone) {
+        dao.deleteBusinessCard(businessCardPhone);
+    }
+
+    public void updateBusinessCard(String name, String phone, String company, String checkPhone) {
+        BusinessCard businessCard = new BusinessCard(name, phone, company);
+        dao.updateBusinessCard(businessCard, checkPhone);
+    }
 
 }
