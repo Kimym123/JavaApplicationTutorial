@@ -17,18 +17,18 @@ public class CreateController extends HttpServlet {
 	private final GuestBookDao dao = new GuestBookDao();
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
-		resp.setContentType("text/html;charset=utf-8");
 
 		GuestBook guestbook = new GuestBook();
 
-		guestbook.setBbsName(req.getParameter("name"));
-		guestbook.setBbsContent(req.getParameter("content"));
+		guestbook.setGuestBookName(req.getParameter("name"));
+		guestbook.setGuestBookContent(req.getParameter("content"));
 
-		dao.addBbs(guestbook);
-		
-		resp.sendRedirect("GuestBook");
+		dao.addGuestBook(guestbook);
+
+		resp.sendRedirect("guestBook");
 	}
+
 }

@@ -1,53 +1,52 @@
 package se.hs.ac.dto;
 
 public class GuestBook {
-	private int bbsId;
-	private String bbsName;
-	private String bbsContent;
-	private String bbsDate;
+	private int guestBookId;
+	private String guestBookName;
+	private String guestBookContent;
+	private String guestBookDate;
 
-	public int getBbsId() {
-		return bbsId;
+	public int getGuestBookId() {
+		return guestBookId;
 	}
 
-	public void setBbsId(int bbsId) {
-		this.bbsId = bbsId;
+	public void setGuestBookId(int guestBookId) {
+		this.guestBookId = guestBookId;
 	}
 
-	public String getBbsName() {
-		return bbsName;
+	public String getGuestBookName() {
+		return guestBookName;
 	}
 
-	public void setBbsName(String bbsName) {
-		this.bbsName = bbsName;
+	public void setGuestBookName(String guestBookName) {
+		this.guestBookName = guestBookName;
 	}
 
-	public String getBbsContent() {
-		return bbsContent;
+	public String getGuestBookContent() {
+		return guestBookContent;
 	}
 
-	public void setBbsContent(String bbsContent) {
-		this.bbsContent = bbsContent;
+	public void setGuestBookContent(String guestBookContent) {
+		this.guestBookContent = guestBookContent;
 	}
 
-	public String getBbsDate() {
-		return bbsDate;
+	public String getGuestBookDate() {
+		return guestBookDate;
 	}
 
-	public void setBbsDate(String bbsDate) {
-		this.bbsDate = bbsDate;
-	}
-
-	public GuestBook(int bbsId, String bbsName, String bbsContent, String bbsDate) {
-		super();
-		this.bbsId = bbsId;
-		this.bbsName = bbsName;
-		this.bbsContent = bbsContent;
-		this.bbsDate = bbsDate;
+	public void setGuestBookDate(String guestBookDate) {
+		this.guestBookDate = guestBookDate;
 	}
 
 	public GuestBook() {
 
+	}
+
+	public GuestBook(int guestBookId, String guestBookName, String guestBookContent, String guestBookDate) {
+		this.guestBookId = guestBookId;
+		this.guestBookName = guestBookName;
+		this.guestBookContent = guestBookContent;
+		this.guestBookDate = guestBookDate;
 	}
 
 }

@@ -14,15 +14,14 @@ import java.util.List;
 
 @WebServlet("/guestBook")
 public class ListController extends HttpServlet {
-
 	private final GuestBookDao dao = new GuestBookDao();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		List<GuestBook> list = new ArrayList<>(dao.getGuestBookList());
+		List<GuestBook> list = dao.getGuestBookList();
 
 		req.setAttribute("guestBookList", list);
-		req.getRequestDispatcher("/WEB-INF/GuestBook.jsp").forward(req, resp);
+		req.getRequestDispatcher("/GuestBook.jsp").forward(req, resp);
 	}
 }

@@ -16,11 +16,17 @@
 	<hr>
 
 	<c:forEach var="item" items="${guestBookList}">
-		<div>id : ${item.getbbsId}</div>
-		<div>name : ${item.getbbsName}</div>
-		<div>${item.getbbsContent}</div>
-		<div>regdate : ${item.getbbsDate}</div>
-
+		<div>
+			<div>id : ${item.getGuestBookId()}</div>
+			<br>
+			<div>name : ${item.getGuestBookName()}</div>
+			<br>
+			<div>${item.getGuestBookContent()}</div>
+			<br>
+			<div>regdate : ${item.getGuestBookDate()}</div>
+			<br>
+		</div>
+		<hr>
 	</c:forEach>
 
 	<form action="register" method="post">

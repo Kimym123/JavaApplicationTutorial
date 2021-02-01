@@ -12,46 +12,12 @@ import java.util.List;
 
 public class GuestBookDao {
 
-	public String getDate() {
-		String sql = "select now()";
-		try (Connection conn = DBConnection.getConnection();
-				PreparedStatement ps = conn.prepareStatement(sql);
-				ResultSet rs = ps.executeQuery()) {
-
-			if (rs.next()) {
-				return rs.getString(1);
-			}
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-		return null;
-	}
-
-	public int getId() {
-		String sql = "select bbsId from bbs order by bbsId desc";
-
-		try (Connection conn = DBConnection.getConnection();
-				PreparedStatement ps = conn.prepareStatement(sql);
-				ResultSet rs = ps.executeQuery()) {
-
-			if (rs.next()) {
-				return rs.getInt(1) + 1;
-			}
-			return 1;
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-	public void addBbs(GuestBook guestbook) {
-		String sql = "insert into bbs (bbsId,bbsName,bbsContent,bbsDate) values(?,?,?,?)";
+	public void addGuestBook(GuestBook guestbook) {
+		String sql = "insert into guestBook (guestBookName,guestBookContent) values(?,?)";
 
 		try (Connection conn = DBConnection.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
-
-			ps.setInt(1, getId());
-			ps.setString(2, guestbook.getBbsName());
-			ps.setString(3, guestbook.getBbsContent());
-			ps.setString(4, getDate());
+			ps.setString(1, guestbook.getGuestBookName());
+			ps.setString(2, guestbook.getGuestBookContent());
 
 			ps.executeUpdate();
 
@@ -61,7 +27,7 @@ public class GuestBookDao {
 	}
 
 	public List<GuestBook> getGuestBookList() {
-		String sql = "select bbsId, bbsName, bbsContent, bbsDate from bbs";
+		String sql = "select guestBookId, guestBookName, guestBookContent, guestBookDate from guestBook";
 
 		List<GuestBook> guestBookList = new ArrayList<>();
 
