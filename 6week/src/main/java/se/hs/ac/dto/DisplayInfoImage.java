@@ -7,10 +7,9 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductImages {
-    private Long productId;
-    private Long productImageId;
-    private String type;
+public class DisplayInfoImage {
+    private Long id;
+    private Long displayInfoId;
     private Long fileId;
     private String fileName;
     private String saveFileName;
@@ -18,4 +17,5 @@ public class ProductImages {
     private Long deleteFlag;
     private String createDate;
     private String modifyDate;
+
 }

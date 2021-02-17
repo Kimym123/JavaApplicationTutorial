@@ -7,7 +7,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductPrices {
+public class ProductPrice {
     private Long id;
     private Long productId;
     private String priceTypeName;

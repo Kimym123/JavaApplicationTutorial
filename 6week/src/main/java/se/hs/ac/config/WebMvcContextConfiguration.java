@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"se.hs.ac.controller"})
-public class WebMavContextConfiguration extends WebMvcConfigurerAdapter {
+public class WebMvcContextConfiguration implements WebMvcConfigurer {
 
     @Override // URL 요청과 처리 방법(대상)을 매핑해주는 부분
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

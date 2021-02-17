@@ -7,7 +7,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class DisplayInfos {
+public class DisplayInfo {
     private Long id;
     private Long categoryId;
     private Long displayInfoId;

@@ -7,11 +7,13 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Promotions {
+public class ReservationUserComment {
     private Long id;
     private Long productId;
-    private Long categoryId;
+    private Long reservationInfoId;
+    private Long score;
+    private String reservationEmail;
+    private String comment;
     private String categoryName;
     private String description;
-    private Long fileId;
 }
