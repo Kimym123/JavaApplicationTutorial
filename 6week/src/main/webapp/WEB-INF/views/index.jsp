@@ -13,15 +13,19 @@
 <body>
 qqqqqqqqqqqqq
 <h1>Reservation</h1>
-<input type="button" value="api/categories" onclick="location.href='http://localhost:8080/api/categories'"/>
+<input type="button" value="api/categories"
+       onclick="location.href='http://localhost:8080/api/categories'"/>
 <br/><br/>
-<input type="button" value="api/products" onclick="location.href='http://localhost:8080/api/products'"/>
+<input type="button" value="api/products"
+       onclick="location.href='http://localhost:8080/api/products?categoryId=3&limit=0&productCount=4'"/>
 <br/><br/>
-<input type="button" value="api/promotions" onclick="location.href='http://localhost:8080/api/promotions'"/>
+<input type="button" value="api/promotions"
+       onclick="location.href='http://localhost:8080/api/promotions'"/>
 <br/><br/>
-<input type="button" value="api/displayinfos/1" onclick="location.href='http://localhost:8080/api/displayinfos/1'"/>
+<input type="button" value="api/displayinfos/1"
+       onclick="location.href='http://localhost:8080/api/displayinfos/1'"/>
 <br/><br/>
-<input type="button" value="api/displayinfos/"
-       onclick="location.href='http://localhost:8080/api/displayinfos/'"/>
+<input type="button" value="api/comment/"
+       onclick="location.href='http://localhost:8080/api/comment?commentCount=5'"/>
 <br/><br/></body>
 </html>

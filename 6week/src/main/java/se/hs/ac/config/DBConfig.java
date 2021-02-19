@@ -3,6 +3,7 @@ package se.hs.ac.config;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -29,6 +30,11 @@ public class DBConfig implements TransactionManagementConfigurer {
         dataSource.setUsername(username);
         dataSource.setPassword(password);
         return dataSource;
+    }
+
+    @Bean
+    public NamedParameterJdbcTemplate namedParameterJdbcTemplate(DataSource dataSource) {
+        return new NamedParameterJdbcTemplate(dataSource);
     }
 
     // 트랜잭션 매니저를 지정한다.
