@@ -14,7 +14,7 @@ import se.hs.ac.service.CategoryService;
 public class CategoryController {
     private final CategoryService categoryService;
 
-    @GetMapping("categories")
+    @GetMapping("/categories")
     public SizeItemsResponse<Category> getCategory() {
         return categoryService.getCategory();
     }
